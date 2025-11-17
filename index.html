@@ -2,105 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Thosphere - Home</title>
+    <title>Thosphere — Home</title>
+
     <style>
-        body { 
-            margin: 0; 
-            font-family: Arial, sans-serif; 
-            background: #f7f7f7; 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            overflow-x: hidden;
         }
 
-        /* NAVBAR */
-        .navbar { 
-            background: #ffffff; 
-            padding: 15px 0; 
-            border-bottom: 1px solid #ddd; 
-            font-size: 18px; 
-            text-align: center; /* CENTERED */
+        .navbar {
+            background: #ffffff;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 18px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
         }
-        .navbar a { 
-            margin: 0 20px; 
-            text-decoration: none; 
-            color: #333; 
-            font-weight: bold; 
+        .navbar a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .navbar a:hover {
+            color: #000;
+            transform: scale(1.05);
         }
 
-        /* LAYOUT */
-        .container { 
-            display: flex; 
-            justify-content: center; 
-            margin-top: 30px; 
-            gap: 40px; 
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.9s ease forwards;
         }
 
         .main, .sidebar {
-            background: white; 
-            padding: 25px; 
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .main { width: 600px; }
-        .sidebar { width: 250px; }
-        .sidebar img { width: 100%; border-radius: 50%; margin-bottom: 15px; }
-
-        h1, h2 { margin-top: 0; font-weight: bold; }
-        p { line-height: 1.5; }
-
-        /* EXTRA SCROLL SECTION */
-        .extra-section {
-            margin: 60px auto;
-            max-width: 900px;
             background: white;
-            padding: 40px;
+            padding: 25px;
             border-radius: 10px;
+            width: 650px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .extra-section h2 {
-            margin-top: 0;
+        .sidebar {
+            width: 260px;
+        }
+
+        .sidebar img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        h1, h2 { margin-top: 0; }
+        p { line-height: 1.6; }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- NAVIGATION -->
-    <div class="navbar">
+    <div class="navbar reveal">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="links.html">Links</a>
     </div>
 
-    <div class="container">
-
+    <div class="container reveal">
         <div class="main">
             <h1>Newest Post</h1>
             <h2>Welcome to Thosphere's Blog</h2>
-            <p>This is where I post updates, ideas, projects, art progress, and anything that I want to share.</p>
+            <p>This is where I share updates, ideas, art progress, concepts, and anything creative.</p>
             <p><a href="#" style="text-decoration:none; color:#0077cc;">Read Full Post →</a></p>
         </div>
 
         <div class="sidebar">
             <img src="https://via.placeholder.com/300">
             <h2>About Me</h2>
-            <p>I'm Thosphere, a visual artist and digital creator.
-            I enjoy making illustrations, unique concepts, and exploring creative ideas online.</p>
+            <p>I'm Thosphere — a digital creator and artist exploring ideas, colors, and creativity.</p>
         </div>
+    </div>
 
-    </div>
-    
-    <div class="extra-section">
-        <h2>More From Me</h2>
-        <p>
-            Here you'll find upcoming projects, art concepts, development logs, scrapped ideas, 
-            and behind-the-scenes thoughts about what I’m building. I want this website to be 
-            a safe space for creativity, progress, and expression.  
-        </p>
-        <p>
-            Expect updates, new artwork, experiments, and maybe even downloadable content later.
-            Thank you for checking out my space on the internet.
-        </p>
-    </div>
+    <!-- Scroll Reveal Script -->
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            for (let r of reveals) {
+                const rect = r.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    r.classList.add('visible');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
 
 </body>
 </html>
