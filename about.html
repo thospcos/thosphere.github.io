@@ -8,65 +8,48 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f7f7f7;
+            background: #f4f4f4;
             overflow-x: hidden;
         }
-
         .navbar {
             background: #ffffff;
             padding: 15px 0;
             border-bottom: 1px solid #ddd;
-            font-size: 18px;
             text-align: center;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
+            font-size: 18px;
         }
         .navbar a {
-            margin: 0 20px;
+            margin: 0 25px;
             text-decoration: none;
-            color: #333;
             font-weight: bold;
-            transition: 0.2s;
+            color: #333;
+            transition: 0.25s ease;
         }
         .navbar a:hover {
             color: #000;
-            transform: scale(1.05);
+            transform: scale(1.07);
         }
-
         .main {
-            background: white;
+            background: #ffffff;
             width: 750px;
             margin: 40px auto;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
             opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 0.9s ease forwards;
+            transform: translateX(-200px);
+            animation: slideLeft 0.9s ease forwards;
         }
-
-        h1, h2 { margin-top: 0; }
-        p { line-height: 1.6; }
-
-        /* Scroll reveal for list */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.8s;
+        h1, h2 {
+            margin-top: 0;
         }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        p {
+            line-height: 1.6;
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
+        @keyframes slideLeft {
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
             }
         }
     </style>
@@ -74,50 +57,28 @@
 
 <body>
 
-    <div class="navbar reveal">
+    <div class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="links.html">Links</a>
     </div>
 
-    <div class="main reveal">
+    <div class="main">
         <h1>About Me</h1>
 
         <p>Hello! I'm <strong>Thosphere</strong> — a digital artist, designer, and creator who enjoys exploring colors, shapes, ideas, and storytelling.</p>
 
         <h2>What I Do</h2>
-        <ul class="reveal">
+        <ul>
             <li>Digital Illustration</li>
-            <li>Character & Concept Art</li>
+            <li>Character and Concept Art</li>
             <li>Simple Website Creation</li>
-            <li>Aesthetic Design & Visual Themes</li>
+            <li>Aesthetic Visual Design</li>
         </ul>
 
         <h2>My Interests</h2>
-        <p class="reveal">
-            I enjoy experimenting with visual styles, crafting creative worlds,  
-            and making expressive artwork.  
-            I also enjoy building small projects, exploring creativity,  
-            and improving my craft over time.
-        </p>
+        <p>I like experimenting with styles, creating ideas, and making expressive artwork. I enjoy building concepts, small projects, and exploring creativity.</p>
     </div>
-
-    <!-- Scroll Reveal Script -->
-    <script>
-        const reveals = document.querySelectorAll('.reveal');
-
-        function revealOnScroll() {
-            for (let r of reveals) {
-                const rect = r.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
-                    r.classList.add('visible');
-                }
-            }
-        }
-
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-    </script>
 
 </body>
 </html>
