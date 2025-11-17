@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>About Thosphere</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            background: #f4f4f6;
+            color: #222;
             overflow-x: hidden;
         }
         .navbar {
             background: #ffffff;
-            padding: 15px 0;
-            border-bottom: 1px solid #ddd;
+            padding: 16px 0;
+            border-bottom: 1px solid #e3e3e6;
             text-align: center;
             font-size: 18px;
         }
         .navbar a {
-            margin: 0 20px;
+            margin: 0 22px;
             text-decoration: none;
             color: #333;
-            font-weight: bold;
+            font-weight: 700;
         }
-        .navbar a:hover {
-            color: #000;
+        .navbar a:hover { color: #000; }
+        .wrap {
+            max-width: 920px;
+            margin: 38px auto;
+            padding: 0 20px;
         }
-        .main {
-            background: #ffffff;
-            width: 750px;
-            margin: 40px auto;
-            padding: 30px;
+        .card {
+            background: #fff;
             border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-            transform: translateX(-200px);
+            padding: 28px;
+            box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+            transform: translateX(-260px);
             animation: slideLeft 0.9s ease forwards;
         }
-        h1, h2 { margin-top: 0; }
-        p { line-height: 1.6; color: #333; }
-        ul { color: #333; }
-        @keyframes slideLeft {
-            to { transform: translateX(0); opacity: 1; }
-        }
+        .title { font-size: 28px; margin-bottom: 8px; }
+        .lead { color: #444; line-height: 1.7; }
+        .meta { margin-top:18px; display:flex; gap:18px; flex-wrap:wrap; }
+        .meta .block { background:#f7f9fc; padding:12px 14px; border-radius:8px; font-weight:600; color:#234; }
+        .story { margin-top:18px; color:#444; line-height:1.8; }
+        .list { margin-top:16px; }
+        @keyframes slideLeft { to { transform: translateX(0); opacity: 1; } }
     </style>
 </head>
 <body>
@@ -51,18 +54,40 @@
         <a href="links.html">Links</a>
     </div>
 
-    <div class="main">
-        <h1>About Me</h1>
-        <p>Hello. I am Thosphere. I make digital art, concept sketches, and simple web layouts.</p>
-        <h2>Work</h2>
-        <ul>
-            <li>Digital illustration</li>
-            <li>Character and concept art</li>
-            <li>Small website design</li>
-            <li>Aesthetic themes</li>
-        </ul>
-        <h2>Interests</h2>
-        <p>I like exploring color and form, building small projects, and improving my art craft.</p>
+    <div class="wrap">
+        <div class="card">
+            <div class="title">About Me</div>
+            <div class="lead">
+                I am Thosphere. I combine a professional approach to visual craft with a studio practice that embraces experimentation.
+                My work ranges from focused character studies to small interactive prototypes and layout experiments.
+            </div>
+
+            <div class="meta">
+                <div class="block">Primary tools: Clip Studio, Procreate, Roblox Studio</div>
+                <div class="block">Focus: Character design, color studies, compact UX</div>
+            </div>
+
+            <div class="story">
+                I began exploring digital art through simple sketches and small projects. Over time I focused on making work that reads well at small sizes,
+                that tells a mood using color and silhouette. I care about clarity: every shape should communicate something. I also enjoy the craft of building
+                compact web pages and simple interactions that present work neatly.
+            </div>
+
+            <div class="list">
+                <h3 style="margin:8px 0;">Practice & Process</h3>
+                <p style="margin:0 0 8px 0; color:#444;">
+                    I start with thumbnails and rough shapes, iterate with values, then add color and details. I keep experiments short and intentional so
+                    learning is quick and visible. When a study clicks, I refine and archive the process for later reflection.
+                </p>
+
+                <h3 style="margin:8px 0;">Projects & Goals</h3>
+                <ul style="color:#444; line-height:1.6;">
+                    <li>Finish a small character pack that explores consistent lighting approaches.</li>
+                    <li>Polish a playable prototype with readable silhouettes and responsive feedback.</li>
+                    <li>Keep an ongoing notebook of color palettes and small compositional studies.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 </html>
