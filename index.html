@@ -2,21 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Thosphere — Home</title>
+    <title>Thosphere - Home</title>
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; background: #f7f7f7; }
-        .navbar { background: #ffffff; padding: 15px 40px; border-bottom: 1px solid #ddd; font-size: 18px; }
-        .navbar a { margin-right: 25px; text-decoration: none; color: #333; font-weight: bold; }
-        .container { display: flex; justify-content: center; margin-top: 30px; gap: 40px; }
+        body { 
+            margin: 0; 
+            font-family: Arial, sans-serif; 
+            background: #f7f7f7; 
+        }
+
+        /* NAVBAR */
+        .navbar { 
+            background: #ffffff; 
+            padding: 15px 0; 
+            border-bottom: 1px solid #ddd; 
+            font-size: 18px; 
+            text-align: center; /* CENTERED */
+        }
+        .navbar a { 
+            margin: 0 20px; 
+            text-decoration: none; 
+            color: #333; 
+            font-weight: bold; 
+        }
+
+        /* LAYOUT */
+        .container { 
+            display: flex; 
+            justify-content: center; 
+            margin-top: 30px; 
+            gap: 40px; 
+        }
+
         .main, .sidebar {
-            background: white; padding: 25px; border-radius: 8px;
+            background: white; 
+            padding: 25px; 
+            border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
+
         .main { width: 600px; }
         .sidebar { width: 250px; }
         .sidebar img { width: 100%; border-radius: 50%; margin-bottom: 15px; }
+
         h1, h2 { margin-top: 0; font-weight: bold; }
         p { line-height: 1.5; }
+
+        /* EXTRA SCROLL SECTION */
+        .extra-section {
+            margin: 60px auto;
+            max-width: 900px;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .extra-section h2 {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
@@ -40,10 +83,23 @@
         <div class="sidebar">
             <img src="https://via.placeholder.com/300">
             <h2>About Me</h2>
-            <p>I'm Thosphere — a visual artist and digital creator.  
+            <p>I'm Thosphere, a visual artist and digital creator.
             I enjoy making illustrations, unique concepts, and exploring creative ideas online.</p>
         </div>
 
+    </div>
+    
+    <div class="extra-section">
+        <h2>More From Me</h2>
+        <p>
+            Here you'll find upcoming projects, art concepts, development logs, scrapped ideas, 
+            and behind-the-scenes thoughts about what I’m building. I want this website to be 
+            a safe space for creativity, progress, and expression.  
+        </p>
+        <p>
+            Expect updates, new artwork, experiments, and maybe even downloadable content later.
+            Thank you for checking out my space on the internet.
+        </p>
     </div>
 
 </body>
