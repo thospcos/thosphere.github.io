@@ -2,62 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Thosphere</title>
+    <title>Thosphere - Links</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f0f0f0;
+            background: #f7f7f7;
+            opacity: 0;
+            animation: fadeInBody 0.8s ease forwards;
         }
 
+        @keyframes fadeInBody {
+            to { opacity: 1; }
+        }
+
+        /* NAVBAR */
         .navbar {
             background: #ffffff;
             padding: 15px 0;
             border-bottom: 1px solid #ddd;
             font-size: 18px;
             text-align: center;
+            opacity: 0;
+            transform: translateY(-15px);
+            animation: fadeSlideDown 0.8s ease forwards 0.2s;
+        }
+
+        @keyframes fadeSlideDown {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .navbar a {
-            margin: 0 25px;
+            margin: 0 20px;
             text-decoration: none;
             color: #333;
             font-weight: bold;
+            transition: 0.2s ease;
         }
 
         .navbar a:hover {
-            color: #000;
+            color: #0077cc;
         }
 
+        /* MAIN BOX */
         .main {
             background: white;
-            width: 780px;
-            margin: 50px auto;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            width: 750px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlideUp 0.9s ease forwards 0.3s;
         }
 
-        h1, h2 {
-            margin-top: 0;
-            color: #222;
+        @keyframes fadeSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        p {
-            line-height: 1.7;
-            font-size: 17px;
-            color: #444;
+        h1, h2 { margin-top: 0; }
+
+        /* LINK BOXES */
+        .link-box {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #0077cc;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: 0.6s ease;
         }
 
-        ul {
-            font-size: 17px;
-            line-height: 1.7;
-            color: #444;
+        /* Scroll reveal */
+        .reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .link-box a {
+            color: #0077cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .link-box a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -65,38 +108,46 @@
     </div>
 
     <div class="main">
-        <h1>About Me</h1>
+        <h1>My Links</h1>
 
-        <p>
-            Hello, I’m <strong>Thosphere</strong>. I specialize in digital art, visual design, 
-            and creating simple but clean online experiences. I enjoy exploring ideas, 
-            experimenting with colors, and building visual identities that feel expressive 
-            and personal.
-        </p>
+        <div class="link-box reveal-on-scroll">
+            <h2>Instagram</h2>
+            <p>
+                <a href="https://www.instagram.com/thosphere/" target="_blank">
+                    instagram.com/thosphere
+                </a>
+            </p>
+        </div>
 
-        <h2>What I Do</h2>
-        <ul>
-            <li>Digital illustration and character-focused artwork</li>
-            <li>Concept art and creative direction for small projects</li>
-            <li>Lightweight website design with clean and minimal style</li>
-            <li>Aesthetic layouts, color palettes, and theme creation</li>
-        </ul>
+        <div class="link-box reveal-on-scroll">
+            <h2>YouTube</h2>
+            <p>
+                <a href="https://www.youtube.com/" target="_blank">
+                    youtube.com/@thosscos
+                </a>
+            </p>
+        </div>
 
-        <h2>My Approach</h2>
-        <p>
-            I believe in keeping things simple, intentional, and visually consistent. 
-            My style is inspired by calm colors, soft lighting, and expressive character art. 
-            I aim to create work that feels personal, atmospheric, and meaningful.
-        </p>
+        <div class="link-box reveal-on-scroll">
+            <h2>Discord</h2>
+            <p>Username: <strong>thosphere</strong></p>
+        </div>
 
-        <h2>Interests</h2>
-        <p>
-            Beyond art, I enjoy exploring storytelling, building small creative worlds, 
-            and improving my skills through continuous experimentation. I also love learning 
-            new tools, studying visual design techniques, and shaping ideas into something 
-            people can connect with.
-        </p>
     </div>
+
+    <script>
+        // Scroll-reveal animation
+        const reveals = document.querySelectorAll(".reveal-on-scroll");
+
+        window.addEventListener("scroll", () => {
+            for (let el of reveals) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add("reveal");
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
