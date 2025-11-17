@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Thosphere — Home</title>
 
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f7f7f7;
+            background: #f4f4f4;
             overflow-x: hidden;
         }
 
+        /* Navbar */
         .navbar {
             background: #ffffff;
             padding: 15px 0;
             border-bottom: 1px solid #ddd;
-            font-size: 18px;
             text-align: center;
+            font-size: 18px;
             opacity: 0;
             animation: fadeIn 0.8s ease forwards;
         }
+
         .navbar a {
-            margin: 0 20px;
+            margin: 0 25px;
             text-decoration: none;
-            color: #333;
             font-weight: bold;
-            transition: 0.2s;
-        }
-        .navbar a:hover {
-            color: #000;
-            transform: scale(1.05);
+            color: #333;
+            transition: 0.25s ease;
         }
 
+        .navbar a:hover {
+            color: #000;
+            transform: scale(1.07);
+        }
+
+        /* Main layout */
         .container {
             display: flex;
             justify-content: center;
-            margin-top: 40px;
             gap: 40px;
+            padding: 40px 20px;
             opacity: 0;
             transform: translateY(30px);
-            animation: slideUp 0.9s ease forwards;
+            animation: slideUp 0.8s ease forwards;
         }
 
         .main, .sidebar {
-            background: white;
+            background: #ffffff;
             padding: 25px;
-            border-radius: 10px;
-            width: 650px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+        .main {
+            width: 640px;
         }
 
         .sidebar {
@@ -64,10 +71,10 @@
         h1, h2 { margin-top: 0; }
         p { line-height: 1.6; }
 
-        /* Scroll reveal */
+        /* Smooth reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(25px);
             transition: all 0.8s ease;
         }
         .reveal.visible {
@@ -79,7 +86,6 @@
         @keyframes fadeIn {
             to { opacity: 1; }
         }
-
         @keyframes slideUp {
             to {
                 opacity: 1;
@@ -91,41 +97,51 @@
 
 <body>
 
+    <!-- Navbar -->
     <div class="navbar reveal">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="links.html">Links</a>
     </div>
 
+    <!-- Content -->
     <div class="container reveal">
         <div class="main">
-            <h1>Newest Post</h1>
-            <h2>Welcome to Thosphere's Blog</h2>
-            <p>This is where I share updates, ideas, art progress, concepts, and anything creative.</p>
-            <p><a href="#" style="text-decoration:none; color:#0077cc;">Read Full Post →</a></p>
+            <h1>Latest Post</h1>
+            <h2>Welcome to Thosphere</h2>
+            <p>
+                I am Thosphere — an artist, creator, and explorer of ideas.
+                Here I post progress updates, concepts, sketches, and anything creative that I feel like sharing.
+            </p>
+            <p>
+                <a href="#" style="text-decoration:none; color:#0077cc;">Read Full Post →</a>
+            </p>
         </div>
 
         <div class="sidebar">
-            <img src="https://via.placeholder.com/300">
+            <img src="https://via.placeholder.com/300" alt="Profile picture">
             <h2>About Me</h2>
-            <p>I'm Thosphere — a digital creator and artist exploring ideas, colors, and creativity.</p>
+            <p>
+                Digital artist & creator.  
+                I enjoy experimenting with styles, colors, and storytelling while building my own world.
+            </p>
         </div>
     </div>
 
-    <!-- Scroll Reveal Script -->
+    <!-- Reveal script -->
     <script>
-        const reveals = document.querySelectorAll('.reveal');
+        const reveals = document.querySelectorAll(".reveal");
 
         function revealOnScroll() {
-            for (let r of reveals) {
-                const rect = r.getBoundingClientRect();
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight - 80) {
-                    r.classList.add('visible');
+                    el.classList.add("visible");
                 }
-            }
+            });
         }
 
-        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener("scroll", revealOnScroll);
         revealOnScroll();
     </script>
 
