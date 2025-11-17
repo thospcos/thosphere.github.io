@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Thosphere</title>
-
+    <title>Thosphere - Home</title>
     <style>
         body {
             margin: 0;
@@ -19,66 +18,73 @@
             font-size: 18px;
         }
         .navbar a {
-            margin: 0 25px;
+            margin: 0 20px;
             text-decoration: none;
-            font-weight: bold;
             color: #333;
-            transition: 0.25s ease;
+            font-weight: bold;
         }
         .navbar a:hover {
             color: #000;
-            transform: scale(1.07);
         }
-        .main {
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 20px;
+        }
+        .main, .sidebar {
             background: #ffffff;
-            width: 750px;
-            margin: 40px auto;
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-            opacity: 0;
+            opacity: 1;
+        }
+        .main {
+            width: 640px;
             transform: translateX(-200px);
             animation: slideLeft 0.9s ease forwards;
         }
-        h1, h2 {
-            margin-top: 0;
+        .sidebar {
+            width: 260px;
+            transform: translateX(200px);
+            animation: slideRight 0.9s ease forwards;
+            animation-delay: 0.15s;
         }
-        p {
-            line-height: 1.6;
+        .sidebar img {
+            width: 100%;
+            border-radius: 50%;
+            margin-bottom: 15px;
         }
+        h1, h2 { margin-top: 0; }
+        p { line-height: 1.6; color: #333; }
         @keyframes slideLeft {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideRight {
+            to { transform: translateX(0); opacity: 1; }
         }
     </style>
 </head>
-
 <body>
-
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="links.html">Links</a>
     </div>
 
-    <div class="main">
-        <h1>About Me</h1>
+    <div class="container">
+        <div class="main">
+            <h1>Latest Post</h1>
+            <h2>Welcome to Thosphere</h2>
+            <p>I am Thosphere - an artist and creator sharing ideas, sketches, and projects.</p>
+            <p><a href="about.html" style="text-decoration:none; color:#0077cc;">Read full post</a></p>
+        </div>
 
-        <p>Hello! I'm <strong>Thosphere</strong> — a digital artist, designer, and creator who enjoys exploring colors, shapes, ideas, and storytelling.</p>
-
-        <h2>What I Do</h2>
-        <ul>
-            <li>Digital Illustration</li>
-            <li>Character and Concept Art</li>
-            <li>Simple Website Creation</li>
-            <li>Aesthetic Visual Design</li>
-        </ul>
-
-        <h2>My Interests</h2>
-        <p>I like experimenting with styles, creating ideas, and making expressive artwork. I enjoy building concepts, small projects, and exploring creativity.</p>
+        <div class="sidebar">
+            <img src="https://via.placeholder.com/300" alt="profile image">
+            <h2>About Me</h2>
+            <p>Digital artist and creator. I experiment with styles, shapes, and light storytelling.</p>
+        </div>
     </div>
-
 </body>
 </html>
