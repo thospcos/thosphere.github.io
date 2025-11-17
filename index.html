@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Thosphere - Home</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            background: #f4f4f6;
+            color: #222;
             overflow-x: hidden;
         }
         .navbar {
             background: #ffffff;
-            padding: 15px 0;
-            border-bottom: 1px solid #ddd;
+            padding: 16px 0;
+            border-bottom: 1px solid #e3e3e6;
             text-align: center;
             font-size: 18px;
         }
         .navbar a {
-            margin: 0 20px;
+            margin: 0 22px;
             text-decoration: none;
             color: #333;
-            font-weight: bold;
+            font-weight: 700;
         }
-        .navbar a:hover {
-            color: #000;
-        }
-        .container {
+        .navbar a:hover { color: #000; }
+        .page {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            padding: 40px 20px;
+            gap: 36px;
+            padding: 44px 20px;
+            align-items: flex-start;
         }
         .main, .sidebar {
             background: #ffffff;
-            padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+            padding: 26px;
             opacity: 1;
         }
         .main {
-            width: 640px;
-            transform: translateX(-200px);
+            width: 680px;
+            transform: translateX(-280px);
             animation: slideLeft 0.9s ease forwards;
         }
         .sidebar {
-            width: 260px;
-            transform: translateX(200px);
+            width: 300px;
+            transform: translateX(280px);
             animation: slideRight 0.9s ease forwards;
-            animation-delay: 0.15s;
+            animation-delay: 0.12s;
         }
-        .sidebar img {
-            width: 100%;
-            border-radius: 50%;
-            margin-bottom: 15px;
+        .hero-title { font-size: 28px; margin: 6px 0 12px 0; }
+        .lead { color: #444; line-height: 1.6; font-size: 16px; }
+        .section { margin-top: 22px; }
+        .projects { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+        .project {
+            background: #f7f8fb;
+            padding: 14px;
+            border-radius: 8px;
+            border-left: 4px solid #6aa8ff;
         }
-        h1, h2 { margin-top: 0; }
-        p { line-height: 1.6; color: #333; }
-        @keyframes slideLeft {
-            to { transform: translateX(0); opacity: 1; }
+        .project h3 { margin: 0 0 6px 0; font-size: 16px; }
+        .project p { margin: 0; font-size: 14px; color: #555; }
+        .small { font-size: 13px; color: #666; margin-top: 8px; }
+        .skills { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+        .skill { background:#eef6ff; padding:6px 10px; border-radius:999px; font-weight:600; color:#235; font-size:13px; }
+        .sidebar img { width:100%; border-radius:10px; display:block; margin-bottom:14px; }
+        .contact { margin-top:14px; font-size:14px; color:#444; }
+        .footer {
+            max-width: 1100px;
+            margin: 36px auto 60px;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
         }
-        @keyframes slideRight {
-            to { transform: translateX(0); opacity: 1; }
-        }
+        @keyframes slideLeft { to { transform: translateX(0); opacity: 1; } }
+        @keyframes slideRight { to { transform: translateX(0); opacity: 1; } }
     </style>
 </head>
 <body>
@@ -72,19 +85,85 @@
         <a href="links.html">Links</a>
     </div>
 
-    <div class="container">
+    <div class="page">
         <div class="main">
-            <h1>Latest Post</h1>
-            <h2>Welcome to Thosphere</h2>
-            <p>I am Thosphere - an artist and creator sharing ideas, sketches, and projects.</p>
-            <p><a href="about.html" style="text-decoration:none; color:#0077cc;">Read full post</a></p>
+            <div class="hero">
+                <div class="hero-title">Welcome to Thosphere</div>
+                <div class="lead">
+                    I am Thosphere — a digital artist and designer blending clean, professional practice with personal visual storytelling.
+                    This site collects projects, notes, and progress: small experiments, finished pieces, and ideas in development.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 style="margin:0 0 8px 0;">Featured Projects</h2>
+                <div class="projects">
+                    <div class="project">
+                        <h3>Character Series: Quiet Lights</h3>
+                        <p>A set of character studies exploring soft palettes, silhouette, and mood lighting. Includes process sketches and color experiments.</p>
+                        <div class="small">Tools: Clip Studio, Procreate • Year: 2025</div>
+                    </div>
+
+                    <div class="project">
+                        <h3>Mini Game Prototype</h3>
+                        <p>A small interactive prototype combining visuals with simple mechanics. Focus on readable silhouette and responsive feedback.</p>
+                        <div class="small">Tools: Roblox Studio, Blender • Status: Works-in-progress</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 style="margin:0 0 8px 0;">Recent Notes</h2>
+                <p class="small">Short updates, thoughts on design, and lessons learned while building pieces. Expect sketches, color studies, and occasional tutorials.</p>
+                <div style="margin-top:12px;">
+                    <div style="margin-bottom:10px;">
+                        <strong>Color study: Muted cyan</strong>
+                        <div class="small">Explored contrast, mood, and how light reads against desaturated tones.</div>
+                    </div>
+                    <div style="margin-bottom:10px;">
+                        <strong>Process log: Character flow</strong>
+                        <div class="small">Breaking complex movement into readable poses and gesture-based thumbnails.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 style="margin:0 0 8px 0;">Skills & Tools</h2>
+                <div class="skills">
+                    <div class="skill">Digital Illustration</div>
+                    <div class="skill">Concept Art</div>
+                    <div class="skill">Layout & UI</div>
+                    <div class="skill">Roblox Studio</div>
+                    <div class="skill">Blender (basic)</div>
+                </div>
+            </div>
+
         </div>
 
         <div class="sidebar">
-            <img src="https://via.placeholder.com/300" alt="profile image">
-            <h2>About Me</h2>
-            <p>Digital artist and creator. I experiment with styles, shapes, and light storytelling.</p>
+            <img src="https://via.placeholder.com/300" alt="profile">
+            <h2 style="margin:0 0 8px 0;">Hello, I'm Thosphere</h2>
+            <p style="margin:0 0 10px 0; color:#444; line-height:1.6;">
+                I work at the intersection of craft and curiosity. I enjoy making pieces that read clearly and feel personal — a balance
+                between polish and play. My approach is methodical but open to accidents and discoveries.
+            </p>
+
+            <div class="section">
+                <h3 style="margin:0 0 8px 0;">Contact</h3>
+                <div class="contact">
+                    instagram.com/thosphere<br>
+                    youtube.com/@thosphere<br>
+                    Discord: thosphere
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 style="margin:0 0 8px 0;">Availability</h3>
+                <p class="small">Occasionally open for small commissions and collaborations. Message on Instagram for inquiries.</p>
+            </div>
         </div>
     </div>
+
+    <div class="footer">© Thosphere • Created with attention to craft and curiosity</div>
 </body>
 </html>
