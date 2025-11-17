@@ -12,15 +12,13 @@
             overflow-x: hidden;
         }
 
-        /* Navbar */
+        /* Navbar (NO ANIMATION) */
         .navbar {
             background: #ffffff;
             padding: 15px 0;
             border-bottom: 1px solid #ddd;
             text-align: center;
             font-size: 18px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
         }
 
         .navbar a {
@@ -36,15 +34,12 @@
             transform: scale(1.07);
         }
 
-        /* Main layout */
+        /* Layout */
         .container {
             display: flex;
             justify-content: center;
             gap: 40px;
             padding: 40px 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: slideUp 0.8s ease forwards;
         }
 
         .main, .sidebar {
@@ -52,14 +47,20 @@
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            opacity: 0;
         }
 
         .main {
             width: 640px;
+            transform: translateX(-200px); /* start offscreen left */
+            animation: slideLeft 0.9s ease forwards;
         }
 
         .sidebar {
             width: 260px;
+            transform: translateX(200px); /* start offscreen right */
+            animation: slideRight 0.9s ease forwards;
+            animation-delay: 0.15s; /* small delay for nicer look */
         }
 
         .sidebar img {
@@ -68,28 +69,26 @@
             margin-bottom: 15px;
         }
 
-        h1, h2 { margin-top: 0; }
-        p { line-height: 1.6; }
-
-        /* Smooth reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: all 0.8s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        h1, h2 {
+            margin-top: 0;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        p {
+            line-height: 1.6;
         }
-        @keyframes slideUp {
+
+        /* Slide Animations */
+        @keyframes slideLeft {
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
     </style>
@@ -98,52 +97,37 @@
 <body>
 
     <!-- Navbar -->
-    <div class="navbar reveal">
+    <div class="navbar">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="links.html">Links</a>
     </div>
 
-    <!-- Content -->
-    <div class="container reveal">
+    <!-- Main + Sidebar -->
+    <div class="container">
         <div class="main">
             <h1>Latest Post</h1>
             <h2>Welcome to Thosphere</h2>
             <p>
-                I am Thosphere — an artist, creator, and explorer of ideas.
-                Here I post progress updates, concepts, sketches, and anything creative that I feel like sharing.
+                I am Thosphere — an artist and creator exploring ideas,
+                concepts, colors, and growing my own visual universe.
             </p>
             <p>
-                <a href="#" style="text-decoration:none; color:#0077cc;">Read Full Post →</a>
+                <a href="#" style="text-decoration:none; color:#0077cc;">
+                    Read Full Post →
+                </a>
             </p>
         </div>
 
         <div class="sidebar">
-            <img src="https://via.placeholder.com/300" alt="Profile picture">
+            <img src="https://via.placeholder.com/300" alt="Profile image">
             <h2>About Me</h2>
             <p>
-                Digital artist & creator.  
-                I enjoy experimenting with styles, colors, and storytelling while building my own world.
+                Digital artist and designer.  
+                I experiment with styles, shapes, and storytelling through visuals.
             </p>
         </div>
     </div>
-
-    <!-- Reveal script -->
-    <script>
-        const reveals = document.querySelectorAll(".reveal");
-
-        function revealOnScroll() {
-            reveals.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
-                    el.classList.add("visible");
-                }
-            });
-        }
-
-        window.addEventListener("scroll", revealOnScroll);
-        revealOnScroll();
-    </script>
 
 </body>
 </html>
